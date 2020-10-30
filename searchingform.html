@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <h3>Practicce getElementsByClassName</h3>
+    </head>
+    <body>
+        <input type="text" id="searchInput" placeholder="Search by phone number..." />
+        <ul id="userList">
+
+        </ul>
+
+        <button id="resetBt">
+        reset
+        </button>
+     
+        <script type="text/javascript">
+       
+            var users = [
+            { 
+            name: 'Thinh', 
+            phone: '070123123'
+        },
+        {
+            name: 'Hung',
+            phone: '080456456'
+        },
+        {
+            name: 'Hoang',
+            phone: '090123123'
+        }
+        ];
+        var userList = document.getElementById('userList');
+        var searchInput = document.getElementById('searchInput');
+        var reset = document.getElementById('resetBt');
+
+        function render(users) {
+            var content = users.map(function(user) {
+            return '<li>' + user.name + ' - ' + user.phone + '</li>';
+        });
+        userList.innerHTML = content.join('');
+        }
+        
+        render(users);
+        function reload(){
+            
+            console.log(users)
+              render(users);
+              
+      }
+		resetBt.addEventListener('click', reload);
+      
+
+        searchInput.addEventListener('keyup', function(event) {
+            // sự kiện 'change' chỉ xảy ra khi input bị mất focus
+        // sử dụng sự kiện keyup để tìm kiếm người dùng có số điện thoại khớp với nội dung tìm kiếm.
+        // Gợi ý: 
+        // - biến value dưới đây là giá trị của input tại thời điểm gõ phím
+        // - sử dụng array.filter và string.indexOf để lọc users array, trả về những phần tử có số điện thoại chứa string lưu trong biến `value`
+        // Sử dụng Chrome Developer Tools để xem giá trị hiển thị ra sau mỗi lần gõ
+            var value = searchInput.value;
+        console.log(value);
+        var searchContent = users.filter(function(item){
+            return item.phone.indexOf(value) > 0;
+        })
+        console.log(searchContent);
+        
+        function render(users) {
+            var content = users.map(function(user) {
+            return '<li>' + user.name + ' - ' + user.phone + '</li>';
+        });
+        userList.innerHTML = content.join('');
+       
+        }
+
+        render(searchContent);
+        console.log(users)
+        });
+        </script>
+    </body>
+</html>
