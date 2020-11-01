@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <h1 >Rest API</h1>
+    </head>
+    <body>
+        <form id="info">
+            <div>
+                <label>User Id</label>
+                <input id="inputId" type="text"/>
+            </div>
+            <div>
+                <label>User Name</label>
+                <input id="inputName" type="text"/>
+            </div>
+            <div>
+                <label>Address</label>
+                <input id="address" type="text"/>
+            </div>
+            <div>
+                <button id="search" type="button">Search</button>
+                <button id="add" type="button">Add new</button>
+                <button id="update" type="button">Update</button>
+              </div>
+              <div>
+                <button id="delete">Delete</button>
+                <button id="clearButton" type="button">Clear</button>
+              </div>
+              <div>
+                <table style="width:100%" >
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th> 
+                      <th>Address</th>
+                    </tr>
+                   
+                  </table>
+                <table style="width:100%" id="table">
+                    
+                  </table>
+              </div>
+        </form>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script type="text/javascript" src="scriptApi.js"></script>
+    </body>
+</html>
